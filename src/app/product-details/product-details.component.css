@@ -1,0 +1,48 @@
+.detailImg {
+    background-color: gainsboro;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(223, 219, 219);
+    
+}
+.StockDes {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: normal;
+    margin: 15px;
+}
+.Info-Pro {
+    border: 1px solid gainsboro;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: gainsboro;
+    margin-right: 15px;
+}
+.btnPro,
+.sub-Inf {
+    display: flex;
+
+}
+.btnPro button {
+    border:none;
+    outline: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-right: 15px;
+}
+.Buy {
+    background-color: green;
+    color:white
+}
+.cardtn {
+    background-color: rgb(233, 229, 229);
+    border: 1px solid green;
+}
+.description {
+    color:rgb(162, 159, 159)
+}
+.fullSStar {
+    color:yellow
+}

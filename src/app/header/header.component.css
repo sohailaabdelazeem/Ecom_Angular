@@ -1,0 +1,8 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+ }
+ .active-link {
+    color: orange; 
+    font-weight: bold;  
+  }

@@ -1,0 +1,14 @@
+
+<!-- app.component.html -->
+<section class="taskSection">
+    <div class="container-fluid">
+      <app-create-task (taskAdded)="addNewTask($event)"></app-create-task>
+  
+      <app-task-list  [tasks]="tasks"  (taskDeleted)="deleteTask($event)" (taskCompleted)="completeTask($event)"></app-task-list>
+  
+      <div class="footer">
+           <i class="fa-brands fa-react"></i>
+        <p>proudly powered by cosmic JS</p>
+      </div>
+    </div>
+  </section>

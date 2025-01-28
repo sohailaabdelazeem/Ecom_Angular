@@ -1,0 +1,41 @@
+  
+ <!-- task.component.html -->
+<section class="taskSection">
+    <div class="container-fluid">
+      <div class="task-head text-end p-5">
+        <h2>To-Do App!</h2>
+        <p>Add New To-DO</p>
+        <div class="form-floating mb-3">
+          <input type="task" class="form-control" id="floatingInput" placeholder="Enter New Task" [(ngModel)]="newTask">
+          <label for="floatingInput">Enter New Task</label>
+        </div>
+        <button (click)="addTask()">Add</button>
+      </div>
+  
+      <div class="taskOP">
+        <!-- If no tasks, show message, else show tasks -->
+        <div *ngIf="tasks.length === 0">
+          <div class="task-container">
+            <p>let's get some work done 💪</p>
+            <span class="line"></span>
+          </div>
+        </div>
+  
+        <div *ngIf="tasks.length > 0">
+          <div class="task-container">
+            <div *ngFor="let task of tasks; let i = index" class="task info" [ngClass]="{'completed': task.completed}">
+              <p>{{ task.text }}</p>
+              <button (click)="deleteTask(i)" class="btn btn-outline-info h-25 rounded-3">Delete</button>
+              <button (click)="completeTask(i)" class="btn btn-outline-info h-25 rounded-3">Complete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="footer">
+        <i class="fa-brands fa-react"></i>
+        <p>proudly powered by cosmic JS</p>
+      </div>
+    </div>
+  </section>
+  

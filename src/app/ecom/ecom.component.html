@@ -1,0 +1,42 @@
+<h2 class="mb-3">Welcome To Our Shopping Website , start browing.....</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @for(product of products ;track product.id ){
+
+        <div class="col">
+          <div class="card">
+            <!-- <img [src]="product.images" class="card-img-top img-fluid" alt="..."> -->
+             <button class="btnImage" (click)="handleRedirect(product.id)">
+              <img [src]="product.images[0]" class="card-img-top img-fluid " alt="...">
+             </button>
+ 
+            <div class="card-body">
+                 <div class="prod-title">
+                    <h5 class="card-title">{{product.title | titlecase}}</h5>
+                    <!-- <h5>{{product.price | currency:'EGP'}}</h5> -->
+                    <h5><span>$</span>{{product.price}}</h5>
+                 </div>
+ 
+            <div class="mb-4">
+                
+                   @for(star of getStarClasses(product.rating) ; track star){
+                    <i [class]="star"></i>
+                   }
+            </div>
+
+                   
+              @if(product.stock > 0){
+                <span class="badge text-bg-success StockDes">in Stock</span>
+                <button class="addBtn stoBtn">Add to Card</button>
+              }@else {
+                <span class="badge text-bg-danger StockDes">Out of stock</span>
+                <button class="addBtn stoEmpBtn ">Add to Card</button>
+              }
+             
+             
+            </div>
+          </div>
+        </div>
+    }
+    
+  </div>

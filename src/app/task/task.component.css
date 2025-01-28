@@ -1,0 +1,90 @@
+.taskSection {
+    background-color: gainsboro;
+    height: 100vh;
+}
+.task-head {
+    background-color: #09c;
+    color: #fff;
+}
+.task-head h2 {
+    font-size:3rem;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.task-head button {
+    background-color:#09c ;
+    border:1px solid #fff;
+    padding: 7px 20px;
+    outline: none;
+    color:white;
+    border-radius: 5px;
+}
+.form-floating {
+    color:rgba(0, 153, 204, 0.918) ;
+ }
+.task-container {
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.task-container p {
+    font-size: 25px;
+    color:gray
+}
+.task-container .line {
+    display: block;
+    margin-top: 30px;
+    width: 60px;
+    height: 1px;
+    background-color: rgba(167, 162, 162, 0.811);
+    margin: auto;
+}
+ .info {
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 20px 30px;
+    column-gap: 5px;
+ }
+ .info p {
+    padding-right: 15px;
+ }
+ .info button {
+     border:1px solid #09c;
+     width: 100px;
+     color:rgb(23, 23, 23);
+   }
+.footer {
+     background-color: gainsboro;
+    border-top: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+.footer i {
+    color:#09c;
+    font-size: 20px;
+}
+.footer p {
+    color:grey;
+    padding-top: 20px;
+}
+
+/* //////// */
+ /* task.component.css */
+
+  .completed p {
+    text-decoration: line-through;  
+  }
+  
+  button {
+    margin-left: 5px;
+  }
+  

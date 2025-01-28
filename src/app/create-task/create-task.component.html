@@ -1,0 +1,10 @@
+<div class="task-head text-end p-5">
+  <h2>To-Do App!</h2>
+  <p>Add New To-DO</p>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Enter New Task" [(ngModel)]="newTask">
+    <label for="floatingInput">Enter New Task</label>
+  </div>
+  <button (click)="addTask()">Add</button>
+</div>
