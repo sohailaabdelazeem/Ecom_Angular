@@ -1,1 +1,115 @@
 <p>register works!</p>
+ 
+<div class="formLogin w-50 ">
+  <form [formGroup]="recipeForm" (ngSubmit)="handleSubmitForm()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Full Name</label>
+        <input  type="text"  class="form-control" id="name" aria-describedby="namehelp" formControlName="fullName" >   
+      
+        @if(formControls['fullName'].invalid && formControls['fullName'].touched  ){
+          @if(formControls['fullName'].hasError('required')){
+              <div id="namehelp" class="form-text text-danger">this field required.</div>
+ 
+          }@else if(formControls['fullName'].hasError('minlength')) {
+           <div id="namehelp" class="form-text text-danger">Enter At Least 3 charctere</div>
+ 
+           } 
+        }
+      </div>
+
+
+      <div class="mb-3">
+        <label for="UserNameInput" class="form-label">User Name</label>
+        <input  type="text"  
+        class="form-control"
+         id="UserNameInput" 
+         aria-describedby="UserNamehelp" 
+         formControlName="userName" >
+  
+         @if(formControls["userName"].invalid && formControls["userName"].touched){
+          @if(formControls["userName"].hasError('required')){
+              <div id="UserNamehelp" class="form-text text-danger">this field required.</div>
+ 
+          }@else if(formControls["userName"].hasError('minlength')) {
+           <div id="UserNamehelp" class="form-text text-danger">Enter At Least 3 charctere</div>
+ 
+           }@else if (formControls["userName"].hasError('pattern')){
+            <div id="UserNamehelp" class="form-text text-danger">Don't enter space</div>
+
+           }
+        }
+
+        </div>
+
+
+        <div class="mb-3">
+          <label for="Email" class="form-label"> Email</label>
+          <input  type="email"  
+          class="form-control"
+           id="Email" 
+           aria-describedby="emailhelp" 
+           formControlName="Email" 
+           >
+    
+           @if(formControls["Email"].invalid && formControls["Email"].touched){
+            @if(formControls["Email"].hasError('required')){
+                <div id="UserNamehelp" class="form-text text-danger">this field required.</div>
+   
+            }@else if(formControls["Email"].hasError('pattern')) {
+             <div id="UserNamehelp" class="form-text text-danger">Please Enter Valid Email</div>
+   
+             } }
+  
+          </div>
+
+      
+          <div class="mb-3">
+            <label for="password" class="form-label"> Passwod</label>
+            <input  type="password"  
+            class="form-control"
+             id="password" 
+             aria-describedby="password" 
+             formControlName="password" 
+             >
+      
+             @if(formControls["password"].invalid && formControls["password"].touched){
+              @if(formControls["password"].hasError('required')){
+                  <div id="UserNamehelp" class="form-text text-danger">this field required.</div>
+     
+              }@else if(formControls["password"].hasError('pattern')) {
+               <div id="UserNamehelp" class="form-text text-danger">Please Enter Valid Email</div>
+     
+               } }
+    
+            </div>
+
+
+            <div class="mb-3">
+              <label for="Cofirmpassword" class="form-label"> Passwod</label>
+              <input  type="password"  
+              class="form-control"
+               id="Cofirmpassword" 
+               aria-describedby="passwordHELP" 
+               formControlName="conPassword" 
+               >
+        
+               @if(formControls["conPassword"].invalid && formControls["conPassword"].touched){
+                @if(formControls["conPassword"].hasError('required')){
+                    <div id="passwordHELP" class="form-text text-danger">this field required.</div>
+       
+                }@else if(formControls["conPassword"].hasError('passwordMismatch')) {
+                 <div id="passwordHELP" class="form-text text-danger">Passwords do not match.</div>
+       
+                 } }
+      
+              </div>
+ 
+
+       <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  
+  </div>
+
+
+
+  

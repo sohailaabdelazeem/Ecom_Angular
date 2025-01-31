@@ -1,1 +1,47 @@
-<p>login works!</p>
+<p>LOGIN PAGE!</p>
+<div class="formLogin w-50 ">
+<form #recipeForm="ngForm" (ngSubmit)="handelSubmit(recipeForm)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input  type="email"  class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" 
+          name="recipeName" 
+          ngModel 
+          required
+          email
+          #recipeName="ngModel"
+        >
+      @if(recipeName.invalid && (Logpassword.touched || recipeForm.submitted)){
+         @if(recipeName.hasError('required')){
+             <div id="emailHelp" class="form-text text-danger">this field required.</div>
+
+         }@if(recipeName.hasError('email')) {
+          <div id="emailHelp" class="form-text text-danger">Must enter Email such as Exmplegmail.com.</div>
+
+          }
+      }
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password"  class="form-control"  id="exampleInputPassword1"  name="password" 
+      ngModel
+      required
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$"
+      #Logpassword="ngModel">
+      @if(Logpassword.invalid && (Logpassword.touched|| recipeForm.submitted)){
+            @if(Logpassword.hasError('required')){
+            <div id="emailHelp" class="form-text text-danger">This field is Required</div>
+           }@else if (Logpassword.hasError('pattern')) {
+            <div id="emailHelp" class="form-text text-danger">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</div>
+         }
+        }
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check" ngModel>
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+
+    <input type="submit" class="btn btn-primary">
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  </form>
+
+</div>
