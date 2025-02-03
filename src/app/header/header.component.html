@@ -27,12 +27,15 @@
         </li>
 
       
- 
+ <!-- add-product -->
+     
      
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/app-product-counter" routerLinkActive="active-link ">
-            <i class="fa-solid fa-cart-plus"></i>  {{ counter }}</a>
+          <a class="nav-link" aria-current="page" [routerLink]="['/add-product', counter]" routerLinkActive="active-link">
+            <i class="fa-solid fa-cart-plus"></i> {{ counter }}
+          </a>
         </li>
+        
       </ul>
     
     </div>

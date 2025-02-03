@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   recipeForm: FormGroup;
-
+// from:any
   constructor(private router: Router) {
     this.recipeForm = new FormGroup({
       fullName:new FormControl('',[Validators.minLength(3),Validators.required]),
@@ -42,17 +42,14 @@ export class RegisterComponent {
   }
   
   
-  handleSubmitForm(from:any) {
+  handleSubmitForm() {
     
 
-    if (from.valid) {
+    
       console.log("Login successful!");
 
-      this.router.navigate(['/app-all-product']);
-   } else {
-     console.log("Form is invalid, please correct errors.");
-   }
-    
+      this.router.navigate(['/app-login']);
+   
   }
 
  
