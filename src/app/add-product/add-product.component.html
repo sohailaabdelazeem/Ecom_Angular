@@ -1,31 +1,49 @@
-<p>add-product works!</p>
 
-<form #recipeForm="ngForm" (ngSubmit)="handelSubmit(recipeForm)">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="recipeName" 
-      ngModel
-      required
-      minlength="10"
-      maxlength="20"
-      #recipeName="ngModel">
-      @if(recipeName.invalid && recipeName.touched){
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-         @if(recipeName.hasError('required')){
-            <span>required</span>
-         }@else if (recipeName.hasError('minlength')) {
-            <span>min length 10</span>
-         }
-      }
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" name="password" ngModel
-      #password="ngModel">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check" ngModel>
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+<h2>Products:</h2>
+<div>
+@if(cart.length > 0){
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+     <tbody>
+    @for(product of cart ;track product.id ){
+      <tr>
+      <td>
+        <img [src]="product.images" alt="Product Image" class="img-fluid" style="width: 100px;">
+      </td>
+
+      <td>{{ product.title }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="decreaseCounter(product.id)">-</button>
+        <span class="mx-2">{{ cartItems[product.id] || 1 }}</span>
+        <button class="btn btn-success btn-sm" (click)="increaseCounter(product.id)">+</button>
+      </td>
+      <td>{{ product.price * (cartItems[product.id] || 1) }}</td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="removeProduct(product.id)">Remove</button>
+      </td>
+    </tr>
+  }
+  </tbody>
+  
+  
+</table>
+}
+<h3 class="text-end">Grand Total: {{ getTotalCartPrice() }}</h3>
+</div>
+
+
+<ng-template #noProductMessage>
+  <p class="alert alert-warning">No Products in Cart.</p>
+</ng-template>
+
+ 

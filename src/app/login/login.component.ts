@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
- 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   imports: [FormsModule],
@@ -8,18 +9,19 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-//   handelSubmit(from:any){
-//     console.log(from)
-// }
-
  
+constructor(private router: Router) {}
+
   handelSubmit(form: any) {
     if (form.valid) {
-      console.log('Form Submitted:', form.value);
-      // form.reset()
+       console.log("Login successful!");
+
+       this.router.navigate(['/app-all-product']);
     } else {
-      console.log('Form is invalid, please check the fields.');
+      console.log("Form is invalid, please correct errors.");
     }
   }
+ 
+ 
   
 }

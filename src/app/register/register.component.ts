@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import{passwordMatch} from '../confirePassword'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule],
@@ -11,7 +13,7 @@ import{passwordMatch} from '../confirePassword'
 export class RegisterComponent {
   recipeForm: FormGroup;
 
-  constructor() {
+  constructor(private router: Router) {
     this.recipeForm = new FormGroup({
       fullName:new FormControl('',[Validators.minLength(3),Validators.required]),
        Email: new FormControl('', [
@@ -40,10 +42,16 @@ export class RegisterComponent {
   }
   
   
-  handleSubmitForm() {
-    console.log(this.recipeForm);
-    console.log(this.recipeForm.value);
+  handleSubmitForm(from:any) {
     
+
+    if (from.valid) {
+      console.log("Login successful!");
+
+      this.router.navigate(['/app-all-product']);
+   } else {
+     console.log("Form is invalid, please correct errors.");
+   }
     
   }
 

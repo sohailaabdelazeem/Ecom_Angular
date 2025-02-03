@@ -1,3 +1,5 @@
+<p>all-product works!</p>
+
 <h2 class="mb-3">Welcome To Our Shopping Website , start browing.....</h2>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -5,16 +7,14 @@
 
         <div class="col">
           <div class="card">
-            <!-- <img [src]="product.images" class="card-img-top img-fluid" alt="..."> -->
-             <button class="btnImage" (click)="handleRedirect(product.id)">
+              <button class="btnImage" (click)="handleRedirect(product.id)">
               <img [src]="product.images[0]" class="card-img-top img-fluid " alt="...">
              </button>
  
             <div class="card-body">
                  <div class="prod-title">
                     <h5 class="card-title">{{product.title | titlecase}}</h5>
-                    <!-- <h5>{{product.price | currency:'EGP'}}</h5> -->
-                    <h5><span>$</span>{{product.price}}</h5>
+                     <h5><span>$</span>{{product.price}}</h5>
                  </div>
  
             <div class="mb-4">
@@ -41,3 +41,8 @@
     }
     
   </div>
+
+
+
+
+  

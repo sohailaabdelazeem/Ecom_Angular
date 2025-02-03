@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-
+import { CounterServiceService } from '../service/counter-service.service';
 @Component({
   selector: 'app-header',
   imports: [RouterLink,RouterLinkActive],
@@ -8,12 +8,10 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  // constructor(private router:Router){
-  //     console.log("constructor");
-      
-  // }
-// handleDtails(id:number){
-//   this.router.navigate(['/product-details'])
-// }
-
+ 
+   counter=0
+   constructor(private counterSercive:CounterServiceService){}
+   ngOnInit(){
+    this.counterSercive.getCounter().subscribe((response)=>this.counter=response)
+   }
 }

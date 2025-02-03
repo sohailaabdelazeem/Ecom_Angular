@@ -8,6 +8,7 @@ import  {NotFoundComponent} from './not-found/not-found.component'
 import {RegisterComponent} from './register/register.component'
 import {LoginComponent} from './login/login.component'
 import {ProductCounterComponent} from './product-counter/product-counter.component'
+import {AllProductComponent} from './all-product/all-product.component'
 export const routes: Routes = [
     {
         path:'',
@@ -31,13 +32,21 @@ export const routes: Routes = [
     },
     
     {
-        path:'add-Product',
+       path: 'add-product/:id',  
+
+        // path:'add-Product',
         component:AddProductComponent
     },
     {
         path:'setting',
         component:SettingComponent
     },
+    {
+        path:'app-all-product',
+        component:AllProductComponent
+    },
+
+    // 
     {
         path:'app-product-counter',
         component:ProductCounterComponent,
